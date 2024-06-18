@@ -2,6 +2,7 @@
 
 class DatabaseConfig
 {
-    public const DB_FILE = 'data/database.sqlite';
-    public const SQL_FILE = 'config/database.sql';
+    public const DB_TYPE = "sqlite";
+    public const DB_FILE = "data/database.sqlite";
+    public const SQL_FILE = "config/database.sql";
 }
