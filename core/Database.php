@@ -73,4 +73,22 @@ class Database
             die( "Error DB Connection: " . $e->getMessage() );
         }
     }
+
+
+    public function execQuery( $query, $params=[] )
+    {
+        try
+        {
+            $statement = $this->db->prepare( $query );
+            if( empty( $params ) ) $result = $statement->execute();
+            else $result = $statement->execute( $params );
+            if( false != $result ) return $statement->fetchAll( PDO::FETCH_ASSOC );
+            else return [];
+        }
+        catch( PDOException $e )
+        {
+            echo( "PDO Error: " . $e->getMessage() );
+            return null;
+        }
+    }
 }
