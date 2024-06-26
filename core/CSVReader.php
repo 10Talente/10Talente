@@ -6,7 +6,8 @@ class CSVReader
     private $separator = ";";
     private $expectedFieldCount;
     private $header = null;
-    private $data = [];
+    protected $csvData = [];
+    protected $data = [];
 
 
     function __construct( $filename, $expectedFieldCount=null, $separator=";" )
@@ -15,6 +16,7 @@ class CSVReader
         $this->separator = $separator;
         $this->getFieldCount();
         $this->read();
+        $this->convertData();
     }
 
 
@@ -41,7 +43,8 @@ class CSVReader
                     }
                     else
                     {
-                        $this->data[] = array_combine( $header, $row );
+                        for( $i = 0; $i < count( $row ); $i++ ) $row[$i] = trim( $row[$i] );
+                        $this->csvData[] = array_combine( $header, $row );
                     }
                 }
                 fclose( $handle );
@@ -50,6 +53,18 @@ class CSVReader
         }
         else
             throw new Exception( "CSV file not found or not readable" );
+    }
+
+
+    protected function convertData()
+    {
+        $this->data = $this->csvData;
+    }
+
+
+    public function data()
+    {
+        return $this->data;
     }
 
 
@@ -74,18 +89,13 @@ class CSVReader
     }
 
 
-    public function data()
-    {
-        return $this->data;
-    }
-
-
     /**
      * Die Methode prüft, ob alle Elemente im Array leer sind, um so eine leere
      * Zeile zu erkennen.
      */
     private function isEmptyRow( array $row ): bool
     {
+        if( count( $row ) < $this->expectedFieldCount ) return false;
         foreach( $row as $field )
             if( !empty( $field ) )
                 return false;
