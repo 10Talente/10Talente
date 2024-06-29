@@ -1,0 +1,32 @@
+{
+  "ftp://w01c8479.kasserver.com:21@f016b080": {
+    "config": {},
+    "core": {},
+    "csv_test.php": {
+      "type": "-",
+      "size": 301,
+      "lmtime": 0,
+      "modified": false
+    },
+    "data": {},
+    "db_test.php": {
+      "type": "-",
+      "size": 255,
+      "lmtime": 0,
+      "modified": false
+    },
+    "index.php": {
+      "type": "-",
+      "size": 1223,
+      "lmtime": 0,
+      "modified": false
+    },
+    "README.md": {
+      "type": "-",
+      "size": 526,
+      "lmtime": 0,
+      "modified": false
+    }
+  },
+  "$version": 1
+}

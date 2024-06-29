@@ -43,7 +43,11 @@ class CSVReader
                     }
                     else
                     {
-                        for( $i = 0; $i < count( $row ); $i++ ) $row[$i] = trim( $row[$i] );
+                        for( $i = 0; $i < count( $row ); $i++ ) 
+                        {
+                            $row[$i] = trim( $row[$i] );
+                            $row[$i] = preg_replace( '#\s+#' , ' ' , $row[$i] );
+                        }
                         $this->csvData[] = array_combine( $header, $row );
                     }
                 }
@@ -65,6 +69,28 @@ class CSVReader
     public function data()
     {
         return $this->data;
+    }
+
+
+    public function csvData()
+    {
+        $lines = "";
+        $line = "";
+        foreach( array_keys( $this->data[0] ) as $key )
+        {
+            $line .= '"' . $key . '",';
+        }
+        $lines .= substr( $line, 0, -1 ) . "\n";
+        foreach( $this->data as $row )
+        {
+            $line = "";
+            foreach( $row as $cell )
+            {
+                $line .= '"' . $cell . '",';
+            }
+            $lines .= substr( $line, 0, -1 ) . "\n";
+        }
+        return $lines;
     }
 
 

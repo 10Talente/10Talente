@@ -1,0 +1,16 @@
+{
+    "host": "w01c8479.kasserver.com",
+    "username": "f016b080",
+    "password": "Geldsachen123!",
+    "remotePath": "/",
+    "protocol": "ftp",
+    "port": 21,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}

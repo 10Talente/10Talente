@@ -9,7 +9,6 @@ class CSV_DKB extends CSVReader
     {
         foreach( $this->csvData as $row )
         {
-            print_r( $row );
             $newRow = [];
             $newRow["date"] = $row["Buchungsdatum"];
             $newRow["description"] = $row["Verwendungszweck"];
