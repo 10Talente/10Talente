@@ -1,30 +1,80 @@
 {
-  "ftp://w01c8479.kasserver.com:21@f016b080": {
+  "ftp://f016b080@w01c8479.kasserver.com:21": {
     "config": {},
-    "core": {},
-    "csv_test.php": {
-      "type": "-",
-      "size": 301,
-      "lmtime": 0,
-      "modified": false
+    "core": {
+      "CSV_C24.php": {
+        "type": "-",
+        "size": 741,
+        "lmtime": 1719673221734.9832,
+        "modified": false
+      },
+      "CSV_CDB copy.php": {
+        "type": "-",
+        "size": 2378,
+        "lmtime": 1719671618275.1584,
+        "modified": false
+      },
+      "CSV_CDB.php": {
+        "type": "-",
+        "size": 2437,
+        "lmtime": 1719675914082.4841,
+        "modified": false
+      },
+      "CSV_DKB.php": {
+        "type": "-",
+        "size": 757,
+        "lmtime": 0,
+        "modified": false
+      },
+      "CSVReader.php": {
+        "type": "-",
+        "size": 3992,
+        "lmtime": 1719673360937.5095,
+        "modified": false
+      },
+      "Database.php": {
+        "type": "-",
+        "size": 2644,
+        "lmtime": 1719675314773.9219,
+        "modified": false
+      },
+      "GoogleDriveUploadService.php": {
+        "type": "-",
+        "size": 3785,
+        "lmtime": 0,
+        "modified": false
+      }
     },
-    "data": {},
+    "data": {
+      "cdb-af_2022.csv": {
+        "type": "-",
+        "size": 8111,
+        "lmtime": 1719650238867.3296,
+        "modified": false
+      },
+      "cdb-af_2023.csv": {
+        "type": "-",
+        "size": 9382,
+        "lmtime": 1719650328355.5547,
+        "modified": false
+      },
+      "database.sqlite": {
+        "type": "-",
+        "size": 12288,
+        "lmtime": 1719685596191.6426,
+        "modified": false
+      }
+    },
     "db_test.php": {
       "type": "-",
-      "size": 255,
-      "lmtime": 0,
+      "size": 244,
+      "lmtime": 1719675338534.4182,
       "modified": false
     },
     "index.php": {
       "type": "-",
-      "size": 1223,
-      "lmtime": 0,
-      "modified": false
-    },
-    "README.md": {
-      "type": "-",
-      "size": 526,
-      "lmtime": 0,
+      "size": 2325,
+      "lmtime": 1719675332750.2974,
       "modified": false
     }
   },

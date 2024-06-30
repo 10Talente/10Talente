@@ -10,7 +10,7 @@ class CSVReader
     protected $data = [];
 
 
-    function __construct( $filename, $expectedFieldCount=null, $separator=";" )
+    function __construct( $filename, $separator=";", $expectedFieldCount=null )
     {
         $this->filename = $filename;
         $this->separator = $separator;
@@ -27,7 +27,6 @@ class CSVReader
             $this->data = [];
             $header = null;
 
-            ini_set( "auto_detect_line_endings", true );
             if( ( $handle = fopen( $this->filename, "r" ) ) !== false )
             {
                 while( ( $row = fgetcsv( $handle, 0, $this->separator ) ) !== false ) 
@@ -43,17 +42,20 @@ class CSVReader
                     }
                     else
                     {
-                        for( $i = 0; $i < count( $row ); $i++ ) 
+                        if( count( $header ) == count( $row ) )
                         {
-                            $row[$i] = trim( $row[$i] );
-                            $row[$i] = preg_replace( '#\s+#' , ' ' , $row[$i] );
+                            for( $i = 0; $i < count( $row ); $i++ ) 
+                            {
+                                $row[$i] = trim( $row[$i] );
+                                $row[$i] = mb_convert_encoding( $row[$i], "UTF-8" );
+                                $row[$i] = preg_replace( '#\s+#' , ' ' , $row[$i] );
+                            }
+                            $this->csvData[] = array_combine( $header, $row );
                         }
-                        $this->csvData[] = array_combine( $header, $row );
                     }
                 }
                 fclose( $handle );
             }
-            ini_set( "auto_detect_line_endings", false );
         }
         else
             throw new Exception( "CSV file not found or not readable" );
@@ -98,7 +100,6 @@ class CSVReader
     {
         if( is_file( $this->filename ) and is_readable( $this->filename ) ) 
         {
-            ini_set( "auto_detect_line_endings", true );
             if( ( $handle = fopen( $this->filename, "r" ) ) !== false )
             {
                 while( ( $row = fgetcsv( $handle, 0, $this->separator ) ) !== false ) 
@@ -108,7 +109,6 @@ class CSVReader
                 }
                 fclose( $handle );
             }
-            ini_set( "auto_detect_line_endings", false );
         }
         else
             throw new Exception( "CSV file not found or not readable" );
@@ -121,7 +121,7 @@ class CSVReader
      */
     private function isEmptyRow( array $row ): bool
     {
-        if( count( $row ) < $this->expectedFieldCount ) return false;
+        if( count( $row ) != $this->expectedFieldCount ) return true;
         foreach( $row as $field )
             if( !empty( $field ) )
                 return false;

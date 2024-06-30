@@ -92,3 +92,6 @@ class Database
         }
     }
 }
+
+
+$db = new Database();

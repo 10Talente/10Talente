@@ -1,7 +1,7 @@
 CREATE TABLE "accounts" (
 	"id" INTEGER NOT NULL,
 	"name" TEXT NOT NULL,
-	"iban" TEXT NOT NULL,
+	"iban" TEXT NULL,
 	"type" TEXT NULL,
 	"fintsUrl" TEXT NULL,
 	"bankCode" TEXT NULL,
