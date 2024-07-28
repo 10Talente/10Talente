@@ -1,6 +1,19 @@
 {
   "ftp://f016b080@w01c8479.kasserver.com:21": {
-    "config": {},
+    "config": {
+      "DatabaseConfig.php": {
+        "type": "-",
+        "size": 177,
+        "lmtime": 0,
+        "modified": false
+      },
+      "database.sql": {
+        "type": "-",
+        "size": 2530,
+        "lmtime": 1719730984960.6323,
+        "modified": false
+      }
+    },
     "core": {
       "CSV_C24.php": {
         "type": "-",

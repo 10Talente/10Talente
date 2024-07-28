@@ -16,6 +16,8 @@ class CSV_CDB extends CSVReader
             $newRow["date"] = $row["Buchungstag"];
             $newRow["description"] = $retVal["Buchungstext"];
             $newRow["amount"] = $row["Umsatz in EUR"];
+            $newRow["outCat"] = "";
+            $newRow["inCat"] = "";
             $newRow["client"] = $retVal["Partner"];
             $newRow["iban"] = "";
             $newRow["bic"] = "";

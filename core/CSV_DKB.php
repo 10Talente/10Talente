@@ -13,6 +13,8 @@ class CSV_DKB extends CSVReader
             $newRow["date"] = $row["Buchungsdatum"];
             $newRow["description"] = $row["Verwendungszweck"];
             $newRow["amount"] = $row["Betrag (€)"];
+            $newRow["outCat"] = "";
+            $newRow["inCat"] = "";
             $newRow["client"] = $row["Zahlungsempfänger*in"];
             $newRow["iban"] = $row["IBAN"];
             $newRow["bic"] = "";

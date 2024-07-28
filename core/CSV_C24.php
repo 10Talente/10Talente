@@ -13,6 +13,8 @@ class CSV_C24 extends CSVReader
             $newRow["date"] = $row["Buchungsdatum"];
             $newRow["description"] = $row["Verwendungszweck"];
             $newRow["amount"] = $row["Betrag"];
+            $newRow["outCat"] = "";
+            $newRow["inCat"] = "";
             $newRow["client"] = $row["Zahlungsempfänger"];
             $newRow["iban"] = $row["IBAN"];
             $newRow["bic"] = $row["BIC"];
